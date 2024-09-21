@@ -4,7 +4,6 @@ public class EnemyMovement : MonoBehaviour
 {
     private Transform planet;
     private float speed;
-
     public void Initialize(Transform planetTransform, float moveSpeed)
     {
         planet = planetTransform;
@@ -32,5 +31,10 @@ public class EnemyMovement : MonoBehaviour
             }
             Destroy(gameObject); // Destruir o objeto
         }
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.EnemyKilled(); // Notifica o GameManager que um inimigo foi destruído
     }
 }
