@@ -6,10 +6,13 @@ public class EnemySpawner : MonoBehaviour
     public Transform planet;          // Referência ao planeta
     public float spawnInterval = 2f;  // Intervalo de spawn
     public float spawnDistance = 5f;   // Distância das bordas da tela
-    public float speed = 2f;           // Velocidade do movimento dos objetos
+    public float initialSpeed = .1f;     // Velocidade inicial
+    public float speedIncreaseRate = 0.05f; // Aumento de velocidade a cada intervalo
 
-    private void Start()
+    private float currentSpeed;
+     private void Start()
     {
+        currentSpeed = initialSpeed; // Define a velocidade inicial
         InvokeRepeating(nameof(SpawnObject), 0f, spawnInterval);
     }
 
@@ -17,7 +20,10 @@ public class EnemySpawner : MonoBehaviour
     {
         Vector3 spawnPosition = GetRandomEdgePosition();
         GameObject newObject = Instantiate(objectPrefab, spawnPosition, Quaternion.identity);
-        newObject.GetComponent<EnemyMovement>().Initialize(planet, speed);
+        newObject.GetComponent<EnemyMovement>().Initialize(planet, currentSpeed);
+
+        // Aumenta a velocidade para o próximo inimigo
+        currentSpeed += speedIncreaseRate;
     }
 
     private Vector3 GetRandomEdgePosition()
