@@ -4,21 +4,24 @@ using TMPro;
 
 public class PlanetHealth : MonoBehaviour
 {
-    public int health = 10;
+    private float currentlHealth = 0;
+    public float maxHealth = 10f;
     public GameManager gameManager; // Referência ao GameManager
     public TextMeshProUGUI healthText; // Referência ao Text de vida
+    
 
     private void Start()
     {
+        currentlHealth = maxHealth;
         UpdateHealthText(); // Atualiza o texto no início
     }
 
-    public void Damage(int damage)
+    public void Damage(float damage)
     {
-        health -= damage;
+        currentlHealth -= damage;
         UpdateHealthText(); // Atualiza o texto após dano
 
-        if (health <= 0)
+        if (currentlHealth <= 0)
         {
             Destroy(gameObject);
             gameManager.GameOver(); // Chama o Game Over
@@ -27,6 +30,6 @@ public class PlanetHealth : MonoBehaviour
 
     private void UpdateHealthText()
     {
-        healthText.text = "Vida do Planeta: " + health; // Atualiza o texto com a vida atual
+        healthText.text = "Planet health: " + currentlHealth/maxHealth*100 + "%"; // Atualiza o texto com a vida atual
     }
 }

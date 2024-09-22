@@ -27,7 +27,7 @@ public class EnemyMovement : MonoBehaviour
             PlanetHealth planetHealth = planet.GetComponent<PlanetHealth>();
             if (planetHealth != null)
             {
-                planetHealth.Damage(1); // Reduzir a vida do planeta
+                planetHealth.Damage(1f); // Reduzir a vida do planeta
             }
             Destroy(gameObject); // Destruir o objeto
         }
