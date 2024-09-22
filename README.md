@@ -1,6 +1,6 @@
 
 # Próximas tarefas
-
+- [ ] Corrigir vazamento das chaves do leaderboard;
 - [ ] Botão para reiniciar jogo
 
 - [ ] Fazer deploy teste WebGL
