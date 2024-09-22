@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public float spawnDistance = 5f;   // Distância das bordas da tela
     public float initialSpeed = .1f;     // Velocidade inicial
     public float speedIncreaseRate = 0.05f; // Aumento de velocidade a cada intervalo
-
+    private bool isGameActive = true;
     private float currentSpeed;
      private void Start()
     {
@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnObject()
     {
+        if (!isGameActive) return;
         Vector3 spawnPosition = GetRandomEdgePosition();
         GameObject newObject = Instantiate(objectPrefab, spawnPosition, Quaternion.identity);
         newObject.GetComponent<EnemyMovement>().Initialize(planet, currentSpeed);
@@ -46,5 +47,9 @@ public class EnemySpawner : MonoBehaviour
         }
 
         return position;
+    }
+    public void StopSpawning()
+    {
+        isGameActive = false; // Para de spawnar inimigos
     }
 }

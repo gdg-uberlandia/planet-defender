@@ -1,17 +1,23 @@
 using UnityEngine;
 using UnityEngine.UI; 
 using TMPro;
+using Dan.Demo;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public GameObject leaderboardPanel;
+    public GameObject movementButtons;
     public TextMeshProUGUI enemiesKilledText; // Referência ao TextMeshPro
-    private int enemiesKilled = 0; // Contador de inimigos mortos
+    public int enemiesKilled = 0; // Contador de inimigos mortos
     public GameObject gameOverPanel; // Referência ao painel de Game Over
-
+    public LeaderboardManager leaderboardManager;
+    public EnemySpawner enemySpawner;
     public void GameOver()
     {
         gameOverPanel.SetActive(true); 
-        Time.timeScale = 0; // Pausa o jogo
+        leaderboardPanel.SetActive(true);
+        movementButtons.SetActive(false);
+        enemySpawner?.StopSpawning();
     }
     private void Awake()
     {
@@ -34,6 +40,7 @@ public class GameManager : MonoBehaviour
     {
         enemiesKilled++;
         UpdateEnemiesKilledText(); // Atualiza o texto após um inimigo ser destruído
+        leaderboardManager.AddPlayerScore();
     }
 
     private void UpdateEnemiesKilledText()

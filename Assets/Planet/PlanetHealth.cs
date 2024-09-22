@@ -9,6 +9,7 @@ public class PlanetHealth : MonoBehaviour
     public GameManager gameManager; // Referência ao GameManager
     public TextMeshProUGUI healthText; // Referência ao Text de vida
     
+    public GameObject ship;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class PlanetHealth : MonoBehaviour
         if (currentlHealth <= 0)
         {
             Destroy(gameObject);
+            Destroy(ship);
             gameManager.GameOver(); // Chama o Game Over
         }
     }
