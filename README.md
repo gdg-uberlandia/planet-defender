@@ -1,5 +1,5 @@
 
-- [ ] Próximas tarefas
+# Próximas tarefas
 
 - [ ] Botão para reiniciar jogo
 
