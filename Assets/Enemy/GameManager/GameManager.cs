@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 using TMPro;
 using Dan.Demo;
 public class GameManager : MonoBehaviour
@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
     public EnemySpawner enemySpawner;
     public void GameOver()
     {
-        gameOverPanel.SetActive(true); 
-        leaderboardPanel.SetActive(true);
+        gameOverPanel.SetActive(true);
+        //leaderboardPanel.SetActive(true);
         movementButtons.SetActive(false);
         enemySpawner?.StopSpawning();
     }
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         enemiesKilled++;
         UpdateEnemiesKilledText(); // Atualiza o texto após um inimigo ser destruído
-        leaderboardManager.AddPlayerScore();
+        //leaderboardManager.AddPlayerScore();
     }
 
     private void UpdateEnemiesKilledText()
