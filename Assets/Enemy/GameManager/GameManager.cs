@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
-        //leaderboardPanel.SetActive(true);
+        leaderboardPanel.SetActive(true);
         movementButtons.SetActive(false);
         enemySpawner?.StopSpawning();
     }
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         enemiesKilled++;
         UpdateEnemiesKilledText(); // Atualiza o texto após um inimigo ser destruído
-        //leaderboardManager.AddPlayerScore();
+        leaderboardManager.AddPlayerScore();
     }
 
     private void UpdateEnemiesKilledText()

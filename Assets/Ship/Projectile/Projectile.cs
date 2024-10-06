@@ -16,13 +16,4 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // if (collision.CompareTag("Enemy")) // Verifica se colidiu com um inimigo
-        // {
-        //     Destroy(collision.gameObject); // Destrói o inimigo
-        //     Destroy(gameObject); // Destrói o projétil
-        // }
-    }
 }

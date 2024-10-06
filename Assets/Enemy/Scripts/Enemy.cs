@@ -1,31 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
     public ParticleSystem deathParticles;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Projectile")
         {
+            Vector2 hitDirection = (transform.position - collision.transform.position).normalized;
+
+            float angle = Mathf.Atan2(hitDirection.y, hitDirection.x) * Mathf.Rad2Deg;
+
+            Quaternion rotation = Quaternion.Euler(0, 0, angle);
+
+            Instantiate(deathParticles, transform.position, rotation);
+
             Destroy(collision.gameObject);
             Destroy(gameObject);
-            Instantiate(deathParticles, transform.position, Quaternion.identity);
         }
     }
 }
