@@ -1,7 +1,8 @@
 
 # Próximas tarefas
 - [ ] Adicionar registro de score em algum banco de dados
-- [ ] Botão para reiniciar jogo
+
+- [x] Botão para reiniciar jogo
 
 - [ ] Fazer deploy teste WebGL
 
@@ -19,4 +20,4 @@
 
 - [ ] Segundo tipo de inimigo;
 
-Teste protótipo atual https://jam.dev/c/bcfb2e8d-c962-416b-94e8-6205a37e2f1c
+Teste protótipo atual https://jam.dev/c/5859ad97-452c-4f44-8b1c-fae126317369
