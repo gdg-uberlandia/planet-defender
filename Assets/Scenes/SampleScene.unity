@@ -2323,7 +2323,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2094711787}
         m_TargetAssemblyTypeName: Dan.Demo.LeaderboardManager, Assembly-CSharp
         m_MethodName: Submit
         m_Mode: 1
@@ -2404,10 +2404,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 7889491455730553538, guid: 79e49c6883492564682a43ce9eae115a, type: 3}
   planet: {fileID: 403584367}
-  spawnInterval: 0.5
+  spawnInterval: 1
   spawnDistance: 5
   initialSpeed: 0.1
-  speedIncreaseRate: 0.001
+  speedIncreaseRate: 0.0001
 --- !u!4 &714583171
 Transform:
   m_ObjectHideFlags: 0
@@ -3714,7 +3714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1446616712539545854, guid: 841f2ab210e207c4180e031cc6bef584, type: 3}
   firePoint: {fileID: 914016453}
-  fireRate: 0.5
+  fireRate: 0.25
 --- !u!212 &1067158012
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6464,6 +6464,106 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876542638}
   m_CullTransparentMesh: 1
+--- !u!1 &1885295390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1885295392}
+  - component: {fileID: 1885295391}
+  - component: {fileID: 1885295393}
+  m_Layer: 0
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1885295391
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885295390}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 3d0003116826103449d86ae863d2d961, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 19.2, y: 10.8}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1885295392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885295390}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3, y: -0.1, z: 0.03973891}
+  m_LocalScale: {x: 2.027231, y: 1.8648773, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1885295393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885295390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8111ea068be304ca5ff17382314c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 0.01
+  orbitRadius: 5
+  orbitSpeed: 0.01
 --- !u!1 &1992508374
 GameObject:
   m_ObjectHideFlags: 0
@@ -6887,7 +6987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491d79147d9f46f428b94ab1e8d36bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerScoreText: {fileID: 0}
+  _playerScoreText: {fileID: 1395628434}
   _playerUsernameInput: {fileID: 181044205}
   _entryDisplayParent: {fileID: 125005282}
   _entryDisplayPrefab: {fileID: -295299235028769080, guid: 188bdb8a837f74c4087c00cbf810b79c, type: 3}
@@ -7085,3 +7185,4 @@ SceneRoots:
   - {fileID: 886597299}
   - {fileID: 461826090}
   - {fileID: 2094711788}
+  - {fileID: 1885295392}

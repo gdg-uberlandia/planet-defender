@@ -3,12 +3,18 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public ParticleSystem deathParticles;
+    private GameObject planet;
+
+    private void Awake()
+    {
+        planet = GameObject.FindGameObjectWithTag("Planet");
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Projectile")
+        if (collision.gameObject.CompareTag("Projectile"))
         {
-            Vector2 hitDirection = (transform.position - collision.transform.position).normalized;
+            Vector2 hitDirection = (transform.position - planet.transform.position).normalized;
 
             float angle = Mathf.Atan2(hitDirection.y, hitDirection.x) * Mathf.Rad2Deg;
 

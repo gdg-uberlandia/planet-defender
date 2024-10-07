@@ -4,11 +4,11 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 10f;
     public float lifetime = .5f;
-
-
-
+    public float rotationSpeed = 100f;
     private void Update()
     {
+        Transform childTransform = transform.Find("Sprite");
+        childTransform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
         transform.Translate(Vector2.up * speed * Time.deltaTime); // Move o projétil
         lifetime -= Time.deltaTime;
         if (lifetime <= 0)
