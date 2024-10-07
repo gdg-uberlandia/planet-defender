@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -41,5 +42,10 @@ public class GameManager : MonoBehaviour
     private void UpdateEnemiesKilledText()
     {
         enemiesKilledText.text = "Enemies Killed: " + enemiesKilled; // Atualiza o texto na tela
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reload the current scene
     }
 }
