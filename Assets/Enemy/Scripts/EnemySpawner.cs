@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     public float speedIncreaseRate = 0.05f; // Aumento de velocidade a cada intervalo
     private bool isGameActive = true;
     private float currentSpeed;
-     private void Start()
+    private void Start()
     {
         currentSpeed = initialSpeed; // Define a velocidade inicial
         InvokeRepeating(nameof(SpawnObject), 0f, spawnInterval);
@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
         newObject.GetComponent<EnemyMovement>().Initialize(planet, currentSpeed);
 
         // Aumenta a velocidade para o próximo inimigo
-        currentSpeed += speedIncreaseRate;
+        //currentSpeed += speedIncreaseRate;
     }
 
     private Vector3 GetRandomEdgePosition()
