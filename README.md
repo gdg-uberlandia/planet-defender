@@ -10,13 +10,13 @@
 
 - [x] Feedback visual matar inimigo;
 
-- [ ] Feedback visual tomar dano;
+- [x] Feedback visual tomar dano;
 
 - [ ] Adicionar sprites melhores
 
 - [ ] Efeitos sonoros
 
-- [ ] Powerups escolha entre 3 opções após matar 50;
+- [ ] Powerups escolha entre 3 opções após matar 10;
 
 - [ ] Segundo tipo de inimigo;
 
