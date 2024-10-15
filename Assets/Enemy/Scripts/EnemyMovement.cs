@@ -21,14 +21,14 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
         if (collision.transform == planet)
         {
-            PlanetHealth planetHealth = planet.GetComponent<PlanetHealth>();
-            if (planetHealth != null)
-            {
-                planetHealth.Damage(1f); // Reduzir a vida do planeta
-            }
+            // PlanetHealth planetHealth = planet.GetComponent<PlanetHealth>();
+            // if (planetHealth != null)
+            // {
+            //     planetHealth.Damage(1f); // Reduzir a vida do planeta
+            // }
             Destroy(gameObject); // Destruir o objeto
         }
     }
