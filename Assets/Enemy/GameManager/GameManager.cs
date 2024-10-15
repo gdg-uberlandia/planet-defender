@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
-        movementButtons.SetActive(false);
+        // movementButtons.SetActive(false);
         enemySpawner?.StopSpawning();
     }
     private void Awake()

@@ -15,6 +15,6 @@ public class PlanetHealth : MonoBehaviour
 
     public void UpdateHealthText(float currentlHealth, float maxHealth)
     {
-        healthText.text = "Planet health: " + currentlHealth / maxHealth * 100 + "%"; // Atualiza o texto com a vida atual
+        healthText.text = "Planet health: " + (currentlHealth / maxHealth) * 100 + "%"; // Atualiza o texto com a vida atual
     }
 }

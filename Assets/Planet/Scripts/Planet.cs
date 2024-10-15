@@ -7,6 +7,8 @@ public class Planet : MonoBehaviour
     private float currentlHealth = 0;
     public float maxHealth = 10f;
     public GameObject ship;
+
+    public GameObject camera;
     public Color damageColor = Color.red; // Cor que o objeto vai piscar quando tomar dano
     public float flashDuration = 0.2f;    // Duração do flash
     private Color originalColor;          // Cor original do objeto
@@ -31,6 +33,7 @@ public class Planet : MonoBehaviour
         planetHealth = GetComponent<PlanetHealth>();
 
         planetHealth.UpdateHealthText(maxHealth, maxHealth);
+        currentlHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -54,6 +57,9 @@ public class Planet : MonoBehaviour
     // Chame esta função quando o objeto tomar dano
     public void TakeDamage()
     {
+        currentlHealth -= 1f; // Reduzir a vida
+        planetHealth.UpdateHealthText(currentlHealth, maxHealth); // Reduzir a vida do planeta
+        StartCoroutine(camera.GetComponent<CameraShake>().Shake());
         StartCoroutine(FlashDamage());
     }
 
@@ -67,6 +73,7 @@ public class Planet : MonoBehaviour
 
     IEnumerator Dead()
     {
+        Debug.Log("Call Death");
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
         Destroy(ship);
@@ -83,7 +90,6 @@ public class Planet : MonoBehaviour
 
             if (planetHealth != null)
             {
-                planetHealth.UpdateHealthText(1f, maxHealth); // Reduzir a vida do planeta
                 TakeDamage();
 
                 if (currentlHealth <= 0)
@@ -94,9 +100,6 @@ public class Planet : MonoBehaviour
         }
     }
 
-
-
-    // Corrotina que altera a cor temporariamente
     IEnumerator FlashDamage()
     {
         // Mudar a cor para a cor de dano
