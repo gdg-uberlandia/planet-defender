@@ -13,12 +13,7 @@ public class Planet : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     public float rotationSpeed = .5f;
-
-
     private Animator animator;
-
-
-
 
     // public float dragFactor = 0.95f;
 
