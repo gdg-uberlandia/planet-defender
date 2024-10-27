@@ -378,7 +378,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1067158011}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: ShipMovement, Assembly-CSharp
           m_MethodName: MoveRight
           m_Mode: 1
@@ -394,7 +394,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1067158011}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: ShipMovement, Assembly-CSharp
           m_MethodName: OnPointerUp
           m_Mode: 1
@@ -664,8 +664,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c74f5ec806e84840b1a68f9f30618e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0.5
-  magnitude: 0.2
+--- !u!1 &533003448 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4654104498283555859, guid: 0a3cc04b83af2ca448bdc0d3f2be0536, type: 3}
+  m_PrefabInstance: {fileID: 676387670947850709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &533003455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533003448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646ba3cc01b83914b934eb23edd666e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &533003456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533003448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcde06577ba373429f2c6ea3c0bb61c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.2
+  rotationSpeed: 0.5
 --- !u!114 &573710158 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4170502562653236836, guid: 910cd8fe6ac81054aa57d318c020ab30, type: 3}
@@ -1110,7 +1141,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1067158011}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: ShipMovement, Assembly-CSharp
           m_MethodName: MoveLeft
           m_Mode: 1
@@ -1126,7 +1157,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1067158011}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: ShipMovement, Assembly-CSharp
           m_MethodName: OnPointerUp
           m_Mode: 1
@@ -1143,17 +1174,37 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3870466631036175875, guid: 2b99d26d2c3d0ed40af1e3138947defd, type: 3}
   m_PrefabInstance: {fileID: 6726455289707649192}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1067158011 stripped
+--- !u!114 &1067158014
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7770001149338279815, guid: 2b99d26d2c3d0ed40af1e3138947defd, type: 3}
-  m_PrefabInstance: {fileID: 6726455289707649192}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067158010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51bc34947aa11e34782b2715552b7ee7, type: 3}
+  m_Script: {fileID: 11500000, guid: 4912eb26d19427c48b1eae631a007741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RotateAround: {fileID: 403584367}
+  RotationSpeed: 60
+  leftButton: {fileID: 0}
+  rightButton: {fileID: 0}
+--- !u!114 &1067158015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067158010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03705dffe84f9884687bf13da7cba677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1446616712539545854, guid: 841f2ab210e207c4180e031cc6bef584, type: 3}
+  firePoint: {fileID: 1998219114}
+  fireRate: 0.5
 --- !u!1 &1080240326
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,9 +2043,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b14cbad8a83e4944921d282509534c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 0.1
-  orbitRadius: 2
-  orbitSpeed: 0.1
+--- !u!4 &1998219114 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6553742971964708796, guid: 2b99d26d2c3d0ed40af1e3138947defd, type: 3}
+  m_PrefabInstance: {fileID: 6726455289707649192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &676387670947850709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2063,10 +2116,18 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 573710158}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9195280160886793873, guid: 0a3cc04b83af2ca448bdc0d3f2be0536, type: 3}
+    - {fileID: 5769364557286739204, guid: 0a3cc04b83af2ca448bdc0d3f2be0536, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4654104498283555859, guid: 0a3cc04b83af2ca448bdc0d3f2be0536, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 533003456}
+    - targetCorrespondingSourceObject: {fileID: 4654104498283555859, guid: 0a3cc04b83af2ca448bdc0d3f2be0536, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 533003455}
   m_SourcePrefab: {fileID: 100100000, guid: 0a3cc04b83af2ca448bdc0d3f2be0536, type: 3}
 --- !u!1001 &6364564980189735874
 PrefabInstance:
@@ -2132,6 +2193,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5245261332845943253, guid: 910cd8fe6ac81054aa57d318c020ab30, type: 3}
+      propertyPath: m_TagString
+      value: GameManager
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2147,6 +2212,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3870466631036175875, guid: 2b99d26d2c3d0ed40af1e3138947defd, type: 3}
       propertyPath: m_Name
+      value: Ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870466631036175875, guid: 2b99d26d2c3d0ed40af1e3138947defd, type: 3}
+      propertyPath: m_TagString
       value: Ship
       objectReference: {fileID: 0}
     - target: {fileID: 7312897978969481960, guid: 2b99d26d2c3d0ed40af1e3138947defd, type: 3}
@@ -2201,10 +2270,18 @@ PrefabInstance:
       propertyPath: RotateAround
       value: 
       objectReference: {fileID: 403584367}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5358206293111387453, guid: 2b99d26d2c3d0ed40af1e3138947defd, type: 3}
+    - {fileID: 7770001149338279815, guid: 2b99d26d2c3d0ed40af1e3138947defd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3870466631036175875, guid: 2b99d26d2c3d0ed40af1e3138947defd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1067158015}
+    - targetCorrespondingSourceObject: {fileID: 3870466631036175875, guid: 2b99d26d2c3d0ed40af1e3138947defd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1067158014}
   m_SourcePrefab: {fileID: 100100000, guid: 2b99d26d2c3d0ed40af1e3138947defd, type: 3}
 --- !u!1001 &8497649351893409414
 PrefabInstance:
