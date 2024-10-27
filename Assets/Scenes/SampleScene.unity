@@ -664,6 +664,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c74f5ec806e84840b1a68f9f30618e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duration: 0.5
+  magnitude: 0.2
 --- !u!114 &573710158 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4170502562653236836, guid: 910cd8fe6ac81054aa57d318c020ab30, type: 3}
