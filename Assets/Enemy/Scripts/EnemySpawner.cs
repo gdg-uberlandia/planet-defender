@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -17,6 +18,12 @@ public class EnemySpawner : MonoBehaviour
 
     private float currentSpeed;
 
+
+    private List<float> spawnIntervals = new List<float> { 10f, 30f, 60f, 90f, 140f, 200f };
+
+
+    private int currentInterval = 0;
+
     private void Start()
     {
 
@@ -32,7 +39,13 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnObject();
             yield return new WaitForSeconds(spawnInterval);
-            spawnInterval = Mathf.Max(spawnInterval - 0.01f, minSpawnInterval);
+
+            if (Time.time > spawnIntervals[currentInterval])
+            {
+                currentInterval++;
+                spawnInterval = Mathf.Max(spawnInterval - 0.02f, minSpawnInterval);
+            }
+
         }
     }
 
@@ -64,29 +77,6 @@ public class EnemySpawner : MonoBehaviour
         // Aumenta a velocidade para o próximo inimigo
         //currentSpeed += speedIncreaseRate;
     }
-
-    // private Vector3 GetRandomEdgePosition()
-    // {
-    //     float screenWidth = Camera.main.orthographicSize * Camera.main.aspect;
-    //     float screenHeight = Camera.main.orthographicSize;
-
-    //     Vector3 position = Vector3.zero;
-
-    //     // Escolher aleatoriamente se spawnar na borda vertical ou horizontal
-    //     if (Random.value < 0.5f)  // Vertical
-    //     {
-    //         position.x = Random.Range(-screenWidth, screenWidth);
-    //         position.y = Random.value < 0.5f ? screenHeight : -screenHeight;
-    //     }
-    //     else  // Horizontal
-    //     {
-    //         position.y = Random.Range(-screenHeight, screenHeight);
-    //         position.x = Random.value < 0.5f ? screenWidth : -screenWidth;
-    //     }
-
-    //     return position;
-    // }
-
     private Vector3 GetRandomEdgePosition()
     {
         Vector3 position = Vector3.zero;

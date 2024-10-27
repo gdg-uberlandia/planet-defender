@@ -185,8 +185,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathParticles: {fileID: 1209622592408407035, guid: b3b8dc8de8e9fe948947c7c6044796c5, type: 3}
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.1
   totalLife: 100
-  velocity: 1
+  velocity: 0.8
 --- !u!114 &171789626755413525
 MonoBehaviour:
   m_ObjectHideFlags: 0
