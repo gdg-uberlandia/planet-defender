@@ -10,8 +10,8 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: -6270105691545513160}
-    m_Position: {x: 290, y: 120, z: 0}
+    m_State: {fileID: -5447896583239537035}
+    m_Position: {x: 373.6754, y: 150.34158, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -21,15 +21,15 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -6270105691545513160}
---- !u!1102 &-6270105691545513160
+  m_DefaultState: {fileID: -5447896583239537035}
+--- !u!1102 &-5447896583239537035
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: InvaderChanging
+  m_Name: InvaderChanging 2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -42,7 +42,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a42a154d4a481b749a02d3f68cae0808, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1eb17c1b34eaef84b8e74256abc361ba, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -54,7 +54,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy
+  m_Name: Enemy 2
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:

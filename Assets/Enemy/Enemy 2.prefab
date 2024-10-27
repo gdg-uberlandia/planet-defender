@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1445092439312087503}
   - component: {fileID: 171789626755413525}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,7 +105,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1279639412, guid: 1e5b65ddc6c34624fb98b32dd7592bf9, type: 3}
+  m_Sprite: {fileID: 1226934909, guid: 1e5b65ddc6c34624fb98b32dd7592bf9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,7 +126,7 @@ Animator:
   m_GameObject: {fileID: 7889491455730553538}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6990bf87815c4404ea94d74d2b354d64, type: 2}
+  m_Controller: {fileID: 9100000, guid: eac5035a60370ca418e05ad8c249ded7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -185,8 +185,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathParticles: {fileID: 1209622592408407035, guid: b3b8dc8de8e9fe948947c7c6044796c5, type: 3}
-  totalLife: 100
-  velocity: 1
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.1
+  totalLife: 200
+  velocity: 1.2
 --- !u!114 &171789626755413525
 MonoBehaviour:
   m_ObjectHideFlags: 0
