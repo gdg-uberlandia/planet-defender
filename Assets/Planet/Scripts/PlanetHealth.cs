@@ -5,9 +5,12 @@ using TMPro;
 public class PlanetHealth : MonoBehaviour
 {
 
-    public GameManager gameManager; // Referência ao GameManager
-    public TextMeshProUGUI healthText; // Referência ao Text de vida
-
+    private GameManager gameManager; // Referência ao GameManager
+    private TextMeshProUGUI healthText; // Referência ao Text de vida
+    public void Awake(){
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        healthText = GameObject.Find("PlanetHeatlhText").GetComponent<TextMeshProUGUI>();
+    }
     public void Dead()
     {
         gameManager.GameOver(); // Chama o Game Over
