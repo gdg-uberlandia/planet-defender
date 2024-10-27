@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlanetariumBackground : MonoBehaviour
 {
-    public float rotationSpeed = 10f;
-    public float orbitRadius = 5f;
-    public float orbitSpeed = 1f;
+    public float rotationSpeed = 0.1f;
+    public float orbitRadius = 2f;
+    public float orbitSpeed = 0.1f;
 
     private Vector2 centerPosition;
     private float angle = 0f;
