@@ -12,11 +12,23 @@ public class ShipMovement : MonoBehaviour
     public Button leftButton;  // Referência ao botão esquerdo
     public Button rightButton; // Referência ao botão direito
 
+    private Animator animator;
+
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
+
+    public void Start()
+    {
+        animator = GetComponentInChildren<Animator>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+    }
+
     void Update()
     {
         float h = Input.GetAxis("Horizontal");
 
-        if (RotateAround != null) 
+        if (RotateAround != null)
         {
             Vector3 directionToCenter = RotateAround.position - transform.position;
 
@@ -25,18 +37,46 @@ public class ShipMovement : MonoBehaviour
 
             // Spin the object around the target
             MoveShip(h);
-            if (Mathf.Abs(h) != 1) { 
-                // Adiciona a movimentação com botões
-                if (isMovingLeft)
+
+            if (h != 0)
+            {
+                if (h < 0)
                 {
-                    MoveShip(-1); // Move para a esquerda
+                    spriteRenderer.flipX = false;
                 }
-                else if (isMovingRight)
+                else
                 {
-                    MoveShip(1); // Move para a direita
+                    spriteRenderer.flipX = true;
                 }
+                animator.SetBool("IsRunning", true);
             }
-           
+            else
+            {
+                animator.SetBool("IsRunning", false);
+            }
+
+            Debug.Log(" h: " + Mathf.Abs(h));
+            // if (Mathf.Abs(h) != 1)
+            // {
+            //     animator.SetBool("IsRunning", true);
+            //     // Adiciona a movimentação com botões
+            //     if (isMovingLeft)
+            //     {
+            //         MoveShip(-1); // Move para a esquerda
+            //         spriteRenderer.flipX = false;
+            //     }
+            //     else if (isMovingRight)
+            //     {
+            //         MoveShip(1); // Move para a direita
+            //         spriteRenderer.flipX = true;
+            //     }
+            // }
+            // else
+            // {
+
+            //     animator.SetBool("IsRunning", false);
+            // }
+
         }
     }
 

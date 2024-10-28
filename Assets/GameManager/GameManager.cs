@@ -10,7 +10,26 @@ public class GameManager : MonoBehaviour
     public int enemiesKilled = 0; // Contador de inimigos mortos
     public GameObject gameOverPanel; // Referência ao painel de Game Over
     public EnemySpawner enemySpawner;
+
+    public TextMeshProUGUI timerText;
+
+    private float maximumTime = 180f;
+
+
+
+    private bool running = true;
+
+    private float elapsedTime = 0f;
     public void GameOver()
+    {
+
+        running = false;
+        gameOverPanel.SetActive(true);
+        // movementButtons.SetActive(false);
+        enemySpawner?.StopSpawning();
+    }
+
+    public void Finish()
     {
         gameOverPanel.SetActive(true);
         // movementButtons.SetActive(false);
@@ -37,6 +56,30 @@ public class GameManager : MonoBehaviour
     {
         enemiesKilled++;
         UpdateEnemiesKilledText(); // Atualiza o texto após um inimigo ser destruído
+    }
+
+
+    private void updateTimerText()
+    {
+
+        var currentTime = maximumTime - elapsedTime;
+
+        int minutes = (int)(currentTime / 60);
+        int seconds = (int)(currentTime % 60);
+
+
+        timerText.text = $"Time: {minutes:D2}:{seconds:D2}";
+    }
+
+    public void Update()
+    {
+
+        if (running)
+        {
+            elapsedTime += Time.deltaTime;
+            updateTimerText();
+        }
+
     }
 
     private void UpdateEnemiesKilledText()

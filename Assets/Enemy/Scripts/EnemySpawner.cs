@@ -18,18 +18,49 @@ public class EnemySpawner : MonoBehaviour
 
     private float currentSpeed;
 
+    private List<float> spawnIntervals = new List<float> { 10f, 25f, 35f, 40f, 50f, 60f, 75f };
 
-    private List<float> spawnIntervals = new List<float> { 10f, 30f, 60f, 90f, 140f, 200f };
+    private float lastIncreaseSpawnInterval = 0f;
 
 
     private int currentInterval = 0;
 
     private void Start()
     {
-
         planet = GameObject.FindGameObjectWithTag("Planet").transform;
         currentSpeed = initialSpeed; // Define a velocidade inicial
         StartCoroutine(SpawnEnemies());
+    }
+
+
+    float increaseSpawnInterval()
+    {
+
+        //Debug.Log("currentInterval: " + currentInterval);
+        if (Time.time > spawnIntervals[currentInterval])
+        {
+            if (currentInterval + 1 < spawnIntervals.Count)
+            {
+                currentInterval++;
+                spawnInterval = Mathf.Max(spawnInterval - 0.05f, minSpawnInterval);
+                lastIncreaseSpawnInterval = Time.time;
+                // Debug.Log("increaseTime by timer: " + lastIncreaseSpawnInterval);
+            }
+            else
+            {
+                if (lastIncreaseSpawnInterval + 15f < Time.time)
+                {
+                    spawnInterval = Mathf.Max(spawnInterval - 0.05f, minSpawnInterval);
+                    lastIncreaseSpawnInterval = Time.time;
+                    //Debug.Log("increaseTime Periodcally: " + lastIncreaseSpawnInterval);
+                }
+
+            }
+
+            //Debug.Log("spawnInterval: " + spawnInterval);
+        }
+
+        return spawnInterval;
     }
 
 
@@ -40,11 +71,7 @@ public class EnemySpawner : MonoBehaviour
             SpawnObject();
             yield return new WaitForSeconds(spawnInterval);
 
-            if (Time.time > spawnIntervals[currentInterval])
-            {
-                currentInterval++;
-                spawnInterval = Mathf.Max(spawnInterval - 0.02f, minSpawnInterval);
-            }
+            increaseSpawnInterval();
 
         }
     }
@@ -59,10 +86,10 @@ public class EnemySpawner : MonoBehaviour
         }
         if (Time.time < 60f)
         {
-            return Random.value < 0.3f ? enemy1 : enemy2;
+            return Random.value < 0.3f ? enemy2 : enemy1;
         }
 
-        return Random.value < 0.5f ? enemy1 : enemy2;
+        return Random.value < 0.5f ? enemy2 : enemy1;
     }
 
     private void SpawnObject()
@@ -73,9 +100,6 @@ public class EnemySpawner : MonoBehaviour
         GameObject _enemy = GetRandomEnemy();
         GameObject newObject = Instantiate(_enemy, spawnPosition, Quaternion.identity);
         newObject.GetComponent<EnemyMovement>().Initialize(planet, _enemy.GetComponent<Enemy>().velocity);
-
-        // Aumenta a velocidade para o próximo inimigo
-        //currentSpeed += speedIncreaseRate;
     }
     private Vector3 GetRandomEdgePosition()
     {

@@ -188,7 +188,7 @@ MonoBehaviour:
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
   totalLife: 100
-  velocity: 0.8
+  velocity: 1
 --- !u!114 &171789626755413525
 MonoBehaviour:
   m_ObjectHideFlags: 0
