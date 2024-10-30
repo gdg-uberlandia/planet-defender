@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &122587319
 RectTransform:
   m_ObjectHideFlags: 0
@@ -547,6 +547,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276464485}
   m_CullTransparentMesh: 1
+--- !u!1 &310603510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7074185585650052983, guid: 0648cee90fe10ae41bfb0b3f2ec6d158, type: 3}
+  m_PrefabInstance: {fileID: 6575439317803040850}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &312495496
 GameObject:
   m_ObjectHideFlags: 0
@@ -2929,7 +2934,7 @@ GameObject:
   - component: {fileID: 965158272757566783}
   - component: {fileID: 4903344497572182507}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3249,9 +3254,17 @@ PrefabInstance:
       propertyPath: m_FlipY
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 173213940876722565, guid: 0648cee90fe10ae41bfb0b3f2ec6d158, type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 918124017214994616, guid: 0648cee90fe10ae41bfb0b3f2ec6d158, type: 3}
       propertyPath: m_Name
       value: novo_android
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191121904062606255, guid: 0648cee90fe10ae41bfb0b3f2ec6d158, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4611047049042949729, guid: 0648cee90fe10ae41bfb0b3f2ec6d158, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3293,6 +3306,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7074185585650052983, guid: 0648cee90fe10ae41bfb0b3f2ec6d158, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7074185585650052983, guid: 0648cee90fe10ae41bfb0b3f2ec6d158, type: 3}
+      propertyPath: m_TagString
+      value: LaserGun
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3332,7 +3353,7 @@ MonoBehaviour:
   RotationSpeed: 90
   leftButton: {fileID: 0}
   rightButton: {fileID: 0}
-  spriteRenderer: {fileID: 0}
+  laserGun: {fileID: 310603510}
 --- !u!114 &7561406981483290285
 MonoBehaviour:
   m_ObjectHideFlags: 0

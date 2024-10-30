@@ -13,15 +13,15 @@ public class ShipMovement : MonoBehaviour
     public Button rightButton; // Referência ao botão direito
 
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     [SerializeField]
-    private SpriteRenderer spriteRenderer;
+    private GameObject laserGun;
 
     public void Start()
     {
         animator = GetComponentInChildren<Animator>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-
     }
 
     void Update()
@@ -43,10 +43,12 @@ public class ShipMovement : MonoBehaviour
                 if (h < 0)
                 {
                     spriteRenderer.flipX = false;
+                    animator.SetBool("IsLeft", true);
                 }
                 else
                 {
                     spriteRenderer.flipX = true;
+                    animator.SetBool("IsLeft", false);
                 }
                 animator.SetBool("IsRunning", true);
             }
@@ -78,6 +80,13 @@ public class ShipMovement : MonoBehaviour
             // }
 
         }
+    }
+
+    private void RotateChildSpriteRenderer()
+    {
+        // Assuming the child SpriteRenderer is directly under this GameObject
+        Transform childTransform = spriteRenderer.transform;
+        childTransform.Rotate(Vector3.forward * Time.deltaTime * 100); // Adjust the rotation speed as needed
     }
 
     public void MoveLeft()

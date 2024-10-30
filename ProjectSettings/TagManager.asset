@@ -9,6 +9,7 @@ TagManager:
   - Planet
   - GameManager
   - Ship
+  - LaserGun
   layers:
   - Default
   - TransparentFX
