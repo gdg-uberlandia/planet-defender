@@ -55,7 +55,7 @@ public class ShipMovement : MonoBehaviour
                 animator.SetBool("IsRunning", false);
             }
 
-            Debug.Log(" h: " + Mathf.Abs(h));
+            // Debug.Log(" h: " + Mathf.Abs(h));
             // if (Mathf.Abs(h) != 1)
             // {
             //     animator.SetBool("IsRunning", true);

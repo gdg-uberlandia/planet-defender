@@ -22,7 +22,8 @@ public class Planet : MonoBehaviour
 
     private PlanetHealth planetHealth;
 
-    public void Awake(){
+    public void Awake()
+    {
         camera = GameObject.FindGameObjectWithTag("MainCamera");
         ship = GameObject.FindGameObjectWithTag("Ship");
     }
@@ -75,7 +76,7 @@ public class Planet : MonoBehaviour
 
     IEnumerator Dead()
     {
-        Debug.Log("Call Death");
+        // Debug.Log("Call Death");
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
         Destroy(ship);

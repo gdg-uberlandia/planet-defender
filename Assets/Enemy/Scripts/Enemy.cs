@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
     private float currentLife;
     public float velocity = 1f;
 
+    private GameManager gameManager; // Referência ao GameManager
+
 
     private void Awake()
     {
@@ -24,17 +26,20 @@ public class Enemy : MonoBehaviour
         currentLife = totalLife;
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
     private void Die()
     {
-        Vector2 hitDirection = (transform.position - planet.transform.position).normalized;
+        // Vector2 hitDirection = (transform.position - planet.transform.position).normalized;
 
-        float angle = Mathf.Atan2(hitDirection.y, hitDirection.x) * Mathf.Rad2Deg;
+        // float angle = Mathf.Atan2(hitDirection.y, hitDirection.x) * Mathf.Rad2Deg;
 
-        Quaternion rotation = Quaternion.Euler(0, 0, angle);
+        // Quaternion rotation = Quaternion.Euler(0, 0, angle);
 
-        Instantiate(deathParticles, transform.position, rotation);
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
+
+        gameManager.EnemyKilled();
 
         Destroy(gameObject);
     }

@@ -2,51 +2,46 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameObject movementButtons;
     public TextMeshProUGUI enemiesKilledText; // Referência ao TextMeshPro
     public int enemiesKilled = 0; // Contador de inimigos mortos
-    public GameObject gameOverPanel; // Referência ao painel de Game Over
+    public GameObject gameOverPanel;
+
+    public GameObject gameSuccessPanel;
     public EnemySpawner enemySpawner;
 
     public TextMeshProUGUI timerText;
 
     private float maximumTime = 180f;
-
-
-
     private bool running = true;
 
     private float elapsedTime = 0f;
     public void GameOver()
     {
-
-        running = false;
         gameOverPanel.SetActive(true);
-        // movementButtons.SetActive(false);
-        enemySpawner?.StopSpawning();
+        Finish();
     }
 
     public void Finish()
     {
-        gameOverPanel.SetActive(true);
+
+        running = false;
         // movementButtons.SetActive(false);
         enemySpawner?.StopSpawning();
+        Time.timeScale = 0;
     }
-    private void Awake()
+
+    public void Complete()
     {
-        if (Instance == null)
-        {
-            Instance = this; // Define esta instância
-            DontDestroyOnLoad(gameObject); // Não destrói ao carregar novas cenas
-        }
-        else
-        {
-            Destroy(gameObject); // Destroi esta instância se já existir
-        }
+        gameSuccessPanel.SetActive(true);
+        Finish();
     }
+
+
     private void Start()
     {
         UpdateEnemiesKilledText(); // Atualiza o texto inicial
@@ -80,6 +75,19 @@ public class GameManager : MonoBehaviour
             updateTimerText();
         }
 
+        // Se o tempo acabar, chama o método CompleteLevel
+        if (elapsedTime > maximumTime)
+        {
+            Complete();
+        }
+
+        // se ele clicar no botao esc levar para o menu
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            LoadMenu();
+            return;
+        }
+
     }
 
     private void UpdateEnemiesKilledText()
@@ -89,6 +97,14 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reload the current scene
+    }
+
+
+    public void LoadMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu"); // Load the Menu scene
     }
 }
