@@ -57,28 +57,6 @@ public class ShipMovement : MonoBehaviour
                 animator.SetBool("IsRunning", false);
             }
 
-            // Debug.Log(" h: " + Mathf.Abs(h));
-            // if (Mathf.Abs(h) != 1)
-            // {
-            //     animator.SetBool("IsRunning", true);
-            //     // Adiciona a movimentação com botões
-            //     if (isMovingLeft)
-            //     {
-            //         MoveShip(-1); // Move para a esquerda
-            //         spriteRenderer.flipX = false;
-            //     }
-            //     else if (isMovingRight)
-            //     {
-            //         MoveShip(1); // Move para a direita
-            //         spriteRenderer.flipX = true;
-            //     }
-            // }
-            // else
-            // {
-
-            //     animator.SetBool("IsRunning", false);
-            // }
-
         }
     }
 
