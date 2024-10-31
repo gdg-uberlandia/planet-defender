@@ -16,4 +16,16 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void SetParameters(float speed, float lifetime, float rotationSpeed)
+    {
+        this.speed = speed;
+        this.lifetime = lifetime;
+        this.rotationSpeed = rotationSpeed;
+    }
+
+    public float CalculateMaxDistance()
+    {
+        return speed * lifetime;
+    }
 }

@@ -6,9 +6,8 @@ public class Planet : MonoBehaviour
 {
     private float currentlHealth = 0;
     public float maxHealth = 10f;
-    public GameObject ship;
-
-    public GameObject camera;
+    private GameObject ship;
+    private GameObject camera;
     public Color damageColor = Color.red; // Cor que o objeto vai piscar quando tomar dano
     public float flashDuration = 0.2f;    // Duração do flash
     private Color originalColor;          // Cor original do objeto
@@ -23,7 +22,11 @@ public class Planet : MonoBehaviour
 
     private PlanetHealth planetHealth;
 
-
+    public void Awake()
+    {
+        camera = GameObject.FindGameObjectWithTag("MainCamera");
+        ship = GameObject.FindGameObjectWithTag("Ship");
+    }
 
     void Start()
     {
@@ -73,7 +76,7 @@ public class Planet : MonoBehaviour
 
     IEnumerator Dead()
     {
-        Debug.Log("Call Death");
+        // Debug.Log("Call Death");
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
         Destroy(ship);

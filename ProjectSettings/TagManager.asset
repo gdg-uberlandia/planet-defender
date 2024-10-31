@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Projectile
   - Planet
+  - GameManager
+  - Ship
+  - LaserGun
   layers:
   - Default
   - TransparentFX
@@ -43,4 +46,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Over
+    uniqueID: 1597406725
     locked: 0

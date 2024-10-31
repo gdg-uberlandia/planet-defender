@@ -4,6 +4,8 @@ public class EnemyMovement : MonoBehaviour
 {
     private Transform planet;
     private float speed;
+
+
     public void Initialize(Transform planetTransform, float moveSpeed)
     {
         planet = planetTransform;
@@ -24,17 +26,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (collision.transform == planet)
         {
-            // PlanetHealth planetHealth = planet.GetComponent<PlanetHealth>();
-            // if (planetHealth != null)
-            // {
-            //     planetHealth.Damage(1f); // Reduzir a vida do planeta
-            // }
-            Destroy(gameObject); // Destruir o objeto
+            Destroy(gameObject);
         }
-    }
-
-    private void OnDestroy()
-    {
-        GameManager.Instance.EnemyKilled(); // Notifica o GameManager que um inimigo foi destruído
     }
 }
