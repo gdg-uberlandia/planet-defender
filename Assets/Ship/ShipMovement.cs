@@ -85,4 +85,9 @@ public class ShipMovement : MonoBehaviour
     {
         transform.RotateAround(RotateAround.position, -Vector3.forward, direction * RotationSpeed * Time.deltaTime);
     }
+
+    public void AddVelocity(float velocity)
+    {
+        RotationSpeed += velocity;
+    }
 }

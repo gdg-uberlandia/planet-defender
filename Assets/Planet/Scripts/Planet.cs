@@ -66,6 +66,14 @@ public class Planet : MonoBehaviour
         StartCoroutine(FlashDamage());
     }
 
+    public void AddLife(float life)
+    {
+        currentlHealth += life;
+        planetHealth.UpdateHealthText(currentlHealth, maxHealth);
+    }
+
+
+
 
     public void Destroyed()
     {

@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     private float maximumTime = 180f;
     private bool running = true;
+    public GameObject[] modifiers;
 
     private float elapsedTime = 0f;
     public void GameOver()

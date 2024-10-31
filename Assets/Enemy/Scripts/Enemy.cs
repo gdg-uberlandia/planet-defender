@@ -56,6 +56,20 @@ public class Enemy : MonoBehaviour
         spriteRenderer.color = originalColor;
     }
 
+
+    public void SpawnRandomModifier(Vector3 position)
+    {
+        if (Random.Range(0, 100) < 100)
+        {
+            Instantiate(gameManager.modifiers[Random.Range(0, gameManager.modifiers.Length)], position, Quaternion.identity);
+        }
+        else
+        {
+            Debug.Log("No modifier spawned");
+
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Projectile"))
@@ -66,12 +80,11 @@ public class Enemy : MonoBehaviour
 
             if (currentLife <= 0)
             {
+                SpawnRandomModifier(collision.transform.position);
                 Die();
                 return;
 
             }
-
-
         }
     }
 }
